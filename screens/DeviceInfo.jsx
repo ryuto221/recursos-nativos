@@ -1,68 +1,84 @@
 import { StyleSheet, Text, View } from "react-native";
 import * as Device from "expo-device";
+import Header from "../components/Header";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#000",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 35,
-    backgroundColor: "#939",
-    fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 10,
-    padding: 10,
-  },
-  info: {
-    fontSize: 14,       
-    backgroundColor: "#5e4d85",
-    color: "#fff",
-    marginBottom: 10,
-    padding: 15,
-
-  },
-});
-
-export default function DeviceInfo() {
+export default function DeviceInfo({ navigation }) {
   return (
-    <View>
-      <Text style={styles.title}>INFORMAÇÕES DO APARELHO</Text>
-      <Text style={styles.info}>
-        O nome do dispositivo: {Device.deviceName}
-      </Text>
-      <Text style={styles.info}>
-        Seu dispositivo é: {Device.brand}
-      </Text>
-      <Text style={styles.info}>
-        O modelo do seu dispositivo: {Device.modelName} 
-      </Text>
-      <Text style={styles.info}>
-        A versão do dispositovo: {Device.osVersion}
-      </Text>
-      <Text style={styles.info}>
-        A memória total do dispositivo: {Device.totalMemory}
-      </Text>
-      <Text style={styles.info}>
-        O dispositivo é um tablet? {Device.isTablet ? "Sim" : "Não"}
-      </Text> 
-      <Text style={styles.info}>
-        O dispositivo é um celular? {Device.isPhone ? "Sim" : "Não"}
-      </Text>
-      <Text style={styles.info}>
-        O dispositivo é um emulador? {Device.isDevice ? "Sim" : "Não"}
-      </Text>
-      <Text style={styles.info}>
-        A arquitetura do dispositivo: {Device.osBuildId}
-      </Text>
-      <Text style={styles.info}>
-        O ano de fabricação do dispositivo: {Device.deviceYearClass}
-      </Text>
-      <Text style={styles.info}>
-        o design do dispositivo: {Device.designName}
-      </Text>
+    <View style={styles.container}>
+      <Header title="Informações do Aparelho" />
+
+      <View>
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            O nome do seu aparelho é:
+            {Device.modelName}
+          </Text>
+        </View>
+
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            A marca do aparelho é:
+            {Device.brand}
+          </Text>
+        </View>
+
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            O modelo do aparelho é:
+            {Device.modelName}
+          </Text>
+        </View>
+
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            O nome completo do aparelho é:
+            {Device.deviceName}
+          </Text>
+        </View>
+
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            O Design do aparelho é:
+            {Device.designName}
+          </Text>
+        </View>
+
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            O Ano do lançamento é:
+            {Device.deviceYearClass}
+          </Text>
+        </View>
+
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            A memória do aparelho é:
+            {Device.totalMemory}
+          </Text>
+        </View>
+
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            A versão do sistema é a:
+            {Device.osBuildId}
+          </Text>
+        </View>
+
+        <View style={{ margin: 5, backgroundColor: "#B379FD" }}>
+          <Text>
+            A arquitetura do aparelho é:
+            {Device.osInternalBuildId}
+          </Text>
+        </View>
+      </View>
     </View>
   );
 }
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    height: "100%",
+    backgroundColor: "#EACBF8",
+  },
+});
