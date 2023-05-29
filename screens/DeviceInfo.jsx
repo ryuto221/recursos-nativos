@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import * as Device from "expo-device";
-import Header from "../components/Header";
+import Header from "../components/header";
 
 export default function DeviceInfo({ navigation }) {
   return (

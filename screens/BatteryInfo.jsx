@@ -1,5 +1,5 @@
 import { View, StyleSheet, Text, Button } from "react-native";
-import Header from "../components/Header";
+import Header from "../components/header";
 import { useEffect, useState } from "react";
 import * as Battery from "expo-battery";
 
@@ -71,8 +71,8 @@ export default function BatteryInfo({ navigation }) {
             <View style={[backgroundStyle]} />
           </View>
         </View>
-        <View style={{ position: "fixed", }}>
-        <Button style={{marginTop: 50,}} title="Atualizar" onPress={atualizarTudo} />
+        <View>
+        <Button style={{marginTop: "100", position: "absolute"}} title="Atualizar" onPress={atualizarTudo} />
         </View>
       </View>
     </View>

@@ -74,7 +74,7 @@ function TabsNavigation() {
         name="DeviceInfo"
         component={DeviceInfo}
         options={{
-            tabBarLabel: "Home",
+            tabBarLabel: "Info",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="cellphone-information" color={"#782DE3"} size={26} />
             ),
@@ -84,7 +84,7 @@ function TabsNavigation() {
         name="BatteryInfo"
         component={BatteryInfo}
         options={{
-            tabBarLabel: "Home",
+            tabBarLabel: "Battery",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="battery-charging-100" color={"#782DE3"} size={26} />
             ),

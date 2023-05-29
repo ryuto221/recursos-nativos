@@ -21,5 +21,5 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       textAlign: "center",
-      fontFamily: "georgia"
+      // fontFamily: "georgia"
     }});
