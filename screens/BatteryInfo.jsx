@@ -22,6 +22,12 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "red",
   },
+  prabaixo: {
+    bottom: 0,
+    position: "absolute", 
+    marginRight: 10,
+    marginLeft: 10,
+  },
 });
 
 export default function BatteryInfo({ navigation }) {
@@ -67,12 +73,12 @@ export default function BatteryInfo({ navigation }) {
           {nivelBateria}%
         </Text>
         <View style={{ alignItems: "center",}}>
-          <View style={{ width: "100%", height: 60,}}>
+          <View style={{ width: "100%", height: 60, marginLeft: 10, marginRight: 10 }}>
             <View style={[backgroundStyle]} />
           </View>
         </View>
         <View>
-        <Button style={{marginTop: "100", position: "absolute"}} title="Atualizar" onPress={atualizarTudo} />
+        <Button style={styles.prabaixo} title="Atualizar" onPress={atualizarTudo} />
         </View>
       </View>
     </View>

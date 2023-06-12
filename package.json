@@ -26,7 +26,8 @@
     "react-native-vector-icons": "^9.2.0",
     "react-native-web": "~0.18.7",
     "expo-screen-orientation": "~4.3.0",
-    "expo-battery": "~6.3.0"
+    "expo-battery": "~6.3.0",
+    "expo-notifications": "~0.16.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

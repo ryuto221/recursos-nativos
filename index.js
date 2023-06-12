@@ -6,6 +6,8 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import SplashScreen from "./screens/SplashScreen";
 import HomeScreen from "./screens/HomeScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Notify from "./screens/Notify";
+import MyScreenOrientation from "./screens/MyScreenOrientation";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,11 +33,11 @@ export default function RootNavigation() {
           name="DeviceInfo"
           component={DeviceInfo}
           options={{
-            headerShown: true, 
+            headerShown: true,
             headerStyle: {
-              backgroundColor: '#000',
+              backgroundColor: "#000",
             },
-            headerTintColor: '#fff',
+            headerTintColor: "#fff",
           }}
         />
         <Stack.Screen
@@ -44,9 +46,9 @@ export default function RootNavigation() {
           options={{
             headerShown: true,
             headerStyle: {
-              backgroundColor: '#000',
+              backgroundColor: "#000",
             },
-            headerTintColor: '#fff',
+            headerTintColor: "#fff",
           }}
         />
         <Stack.Screen
@@ -55,9 +57,31 @@ export default function RootNavigation() {
           options={{
             headerShown: true,
             headerStyle: {
-              backgroundColor: '#000',
+              backgroundColor: "#000",
             },
-            headerTintColor: '#fff',
+            headerTintColor: "#fff",
+          }}
+        />
+        <Stack.Screen
+          name="Notify"
+          component={Notify}
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
+        <Stack.Screen
+          name="MyScreenOrientation"
+          component={MyScreenOrientation}
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
           }}
         />
       </Stack.Navigator>
@@ -71,24 +95,70 @@ function TabsNavigation() {
   return (
     <tabs.Navigator>
       <tabs.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={"#782DE3"} size={26} />
+          ),
+        }}
+      />
+      <tabs.Screen
         name="DeviceInfo"
         component={DeviceInfo}
         options={{
-            tabBarLabel: "Info",
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="cellphone-information" color={"#782DE3"} size={26} />
-            ),
-          }}
+          tabBarLabel: "Info",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="cellphone-information"
+              color={"#782DE3"}
+              size={26}
+            />
+          ),
+        }}
+      />
+      <tabs.Screen
+        name="MyScreenOrientation"
+        component={MyScreenOrientation}
+        options={{
+          tabBarLabel: "Orientation",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="television"
+              color={"#782DE3"}
+              size={26}
+            />
+          ),
+        }}
       />
       <tabs.Screen
         name="BatteryInfo"
         component={BatteryInfo}
         options={{
-            tabBarLabel: "Battery",
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="battery-charging-100" color={"#782DE3"} size={26} />
-            ),
-          }}
+          tabBarLabel: "Battery",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="battery-charging-100"
+              color={"#782DE3"}
+              size={26}
+            />
+          ),
+        }}
+      />
+      <tabs.Screen
+        name="Notify"
+        component={Notify}
+        options={{
+          tabBarLabel: "Notify",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="bell-alert"
+              color={"#782DE3"}
+              size={26}
+            />
+          ),
+        }}
       />
     </tabs.Navigator>
   );

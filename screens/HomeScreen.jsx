@@ -4,6 +4,8 @@ import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import DeviceInfo from "./DeviceInfo";
 import BatteryInfo from "./BatteryInfo";
+import Notify from "./Notify";
+import MyScreenOrientation from "./MyScreenOrientation";
 
 export default function App({ navigation }) {
   return (
@@ -31,6 +33,28 @@ export default function App({ navigation }) {
           }}
         >
           Battery
+        </Button>
+        <Button
+          mode="contained"
+          style={{
+            color: "#fff",
+          }}
+          onPress={() => {
+            navigation.navigate("Notify");
+          }}
+        >
+          Norificação
+        </Button>
+        <Button
+          mode="contained"
+          style={{
+            color: "#fff",
+          }}
+          onPress={() => {
+            navigation.navigate("MyScreenOrientation");
+          }}
+        >
+          Orientação
         </Button>
       </View>
     </View>
