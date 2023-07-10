@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Header from "../components/header";
 import HTMLParser from 'react-native-html-parser';
 
-export default function Weather({ navigation }) {
-  const [weatherData, setWeatherData] = useState(null);
+export default function Weather() {
+  const [temperature, setTemperature] = useState(null);
 
   useEffect(() => {
     fetchWeatherData();
@@ -13,24 +12,20 @@ export default function Weather({ navigation }) {
   const fetchWeatherData = async () => {
     try {
       const response = await fetch(
-        'https://www.climatempo.com.br' // URL do site que você deseja extrair informações
+        'https://www.climatempo.com.br/previsao-do-tempo/cidade/381/joinville-sc'
       );
       const htmlString = await response.text();
       const parsedHTML = HTMLParser.parse(htmlString);
-      const weatherInfo = parsedHTML.querySelector('.weather-info'); // Seletor CSS para o elemento que contém as informações do clima
-      const temperature = weatherInfo.querySelector('.temperature').innerText; // Seletor CSS para o elemento que contém a temperatura
-      const description = weatherInfo.querySelector('.description').innerText; // Seletor CSS para o elemento que contém a descrição
+      const temperatureElement = parsedHTML.querySelector('.tempMaxMin .text-today .temperature');
+      const temperatureValue = temperatureElement.innerText;
 
-      setWeatherData({
-        temperature,
-        description
-      });
+      setTemperature(temperatureValue);
     } catch (error) {
       console.error(error);
     }
   };
 
-  if (!weatherData) {
+  if (!temperature) {
     return (
       <View style={styles.container}>
         <Text>Loading...</Text>
@@ -39,12 +34,8 @@ export default function Weather({ navigation }) {
   }
 
   return (
-    <View style={{ height: "100%" }}>
-      <Header title="Clima" />
-      <View style={styles.container}>
-        <Text style={styles.temperature}>{weatherData.temperature}°C</Text>
-        <Text style={styles.description}>{weatherData.description}</Text>
-      </View>
+    <View style={styles.container}>
+      <Text style={styles.temperature}>{temperature}</Text>
     </View>
   );
 }
@@ -58,9 +49,5 @@ const styles = StyleSheet.create({
   temperature: {
     fontSize: 48,
     fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  description: {
-    fontSize: 18,
   },
 });
