@@ -8,6 +8,8 @@ import HomeScreen from "./screens/HomeScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Notify from "./screens/Notify";
 import MyScreenOrientation from "./screens/MyScreenOrientation";
+import ContactsInfo from "./screens/ContactsInfo";
+import Weather from "./screens/Weather";
 
 const Stack = createNativeStackNavigator();
 
@@ -76,6 +78,28 @@ export default function RootNavigation() {
         <Stack.Screen
           name="MyScreenOrientation"
           component={MyScreenOrientation}
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
+        <Stack.Screen
+          name="ContactsInfo"
+          component={ContactsInfo}
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
+        <Stack.Screen
+          name="Weather"
+          component={Weather}
           options={{
             headerShown: true,
             headerStyle: {
@@ -154,6 +178,34 @@ function TabsNavigation() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="bell-alert"
+              color={"#782DE3"}
+              size={26}
+            />
+          ),
+        }}
+      />
+      <tabs.Screen
+        name="ContactsInfo"
+        component={ContactsInfo}
+        options={{
+          tabBarLabel: "Contact",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="account-box"
+              color={"#782DE3"}
+              size={26}
+            />
+          ),
+        }}
+      />
+          <tabs.Screen
+        name="Weather"
+        component={Weather}
+        options={{
+          tabBarLabel: "Weather",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="weather-hail"
               color={"#782DE3"}
               size={26}
             />
