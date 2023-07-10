@@ -12,7 +12,7 @@ export default function Weather({ navigation }) {
   const fetchWeatherData = async () => {
     try {
       const response = await fetch(
-        'https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/381/joinville-sc'
+        'https://www.climatempo.com.br/previsao-do-tempo/cidade/381/joinville-sc'
       );
       const data = await response.json();
       setWeatherData(data);
