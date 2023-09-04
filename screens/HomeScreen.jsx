@@ -56,6 +56,17 @@ export default function App({ navigation }) {
         >
           Orientação
         </Button>
+        <Button
+          mode="contained"
+          style={{
+            color: "#fff",
+          }}
+          onPress={() => {
+            navigation.navigate("ScreenInfo");
+          }}
+        >
+          ScreenInfo
+        </Button>
       </View>
     </View>
   );

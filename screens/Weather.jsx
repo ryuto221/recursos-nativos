@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import HTMLParser from 'react-native-html-parser';
+// import cheerio from 'cheerio-without-node-native';
 
 export default function Weather() {
   const [temperature, setTemperature] = useState(null);
 
-  useEffect(() => {
-    fetchWeatherData();
-  }, []);
+  // useEffect(() => {
+  //   fetchWeatherData();
+  // }, []);
 
-  const fetchWeatherData = async () => {
-    try {
-      const response = await fetch(
-        'https://www.climatempo.com.br/previsao-do-tempo/cidade/381/joinville-sc'
-      );
-      const htmlString = await response.text();
-      const parsedHTML = HTMLParser.parse(htmlString);
-      const temperatureElement = parsedHTML.querySelector('.tempMaxMin .text-today .temperature');
-      const temperatureValue = temperatureElement.innerText;
+  // const fetchWeatherData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       'https://www.climatempo.com.br/previsao-do-tempo/cidade/381/joinville-sc'
+  //     );
+  //     const htmlString = await response.text();
+  //     const $ = cheerio.load(htmlString);
+  //     const temperatureElement = $('.tempMaxMin .text-today .temperature');
+  //     const temperatureValue = temperatureElement.text();
 
-      setTemperature(temperatureValue);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     setTemperature(temperatureValue);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   if (!temperature) {
     return (
