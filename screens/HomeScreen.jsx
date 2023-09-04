@@ -67,6 +67,17 @@ export default function App({ navigation }) {
         >
           ScreenInfo
         </Button>
+        <Button
+          mode="contained"
+          style={{
+            color: "#fff",
+          }}
+          onPress={() => {
+            navigation.navigate("MyLocalAuthentication");
+          }}
+        >
+          Autenticação 
+        </Button>
       </View>
     </View>
   );

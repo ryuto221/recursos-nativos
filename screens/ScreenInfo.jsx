@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, Button } from "react-native";
 import Header from "../components/header";
 import * as ScreenCapture from "expo-screen-capture";
 

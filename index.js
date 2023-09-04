@@ -10,6 +10,8 @@ import Notify from "./screens/Notify";
 import MyScreenOrientation from "./screens/MyScreenOrientation";
 import ContactsInfo from "./screens/ContactsInfo";
 import Weather from "./screens/Weather";
+import ScreenInfo from "./screens/ScreenInfo";
+import MyLocalAuthentication from "./screens/LocalAuthentication";
 
 const Stack = createNativeStackNavigator();
 
@@ -108,6 +110,28 @@ export default function RootNavigation() {
             headerTintColor: "#fff",
           }}
         />
+        <Stack.Screen
+          name="ScreenInfo"
+          component={ScreenInfo}
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
+        <Stack.Screen
+          name="MyLocalAuthentication"
+          component={MyLocalAuthentication}
+          options={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: "#000",
+            },
+            headerTintColor: "#fff",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -198,11 +222,39 @@ function TabsNavigation() {
           ),
         }}
       />
-          <tabs.Screen
+      <tabs.Screen
         name="Weather"
         component={Weather}
         options={{
           tabBarLabel: "Weather",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="weather-hail"
+              color={"#782DE3"}
+              size={26}
+            />
+          ),
+        }}
+      />
+           <tabs.Screen
+        name="ScreenInfo"
+        component={ScreenInfo}
+        options={{
+          tabBarLabel: "ScreenInfo",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="weather-hail"
+              color={"#782DE3"}
+              size={26}
+            />
+          ),
+        }}
+      />
+      <tabs.Screen
+        name="MyLocalAuthentication"
+        component={MyLocalAuthentication}
+        options={{
+          tabBarLabel: "Autenticação",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="weather-hail"
